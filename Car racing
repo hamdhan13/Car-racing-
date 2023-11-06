@@ -1,0 +1,31 @@
+import random
+
+# Initialize variables
+player_position = 0
+track_length = 20
+
+# Main game loop
+while True:
+    # Generate random obstacles
+    obstacles = ' ' * player_position + 'X' + ' ' * (track_length - player_position - 1)
+
+    # Display the track and player's position
+    print("|" + obstacles + "|")
+    print(" " * player_position + "A")
+    
+    # Ask for player input
+    move = input("Press 'L' to move left, 'R' to move right, or 'Q' to quit: ")
+    
+    if move == 'L' or move == 'l':
+        player_position -= 1
+    elif move == 'R' or move == 'r':
+        player_position += 1
+    elif move == 'Q' or move == 'q':
+        break
+
+    # Check if the player has reached the end of the track
+    if player_position >= track_length:
+        print("Congratulations! You've reached the finish line!")
+        break
+
+print("Game over. Thanks for playing!")
